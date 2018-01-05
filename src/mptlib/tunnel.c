@@ -23,7 +23,7 @@ int tunnel_start (tunnel_type *tunp)
     struct ifreq ifr;
     if (!tunp) tunp = &tun; // we use the global tun if called with NULL argument
 
-    strcpy(tunp->device, "/dev/net/tun");
+    strcpy(tunp->device, "ROOT\NET\0000");
 
     if ((tunp->fd = open(tunp->device, O_RDWR)) < 0)
         exerror("Tunnel inteface opening error. ", errno);
